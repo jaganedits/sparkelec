@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
 import type { ReactNode } from 'react';
-import { Zap, Phone, Menu, X, Lightbulb, CheckCircle2, ArrowRight, Shield, Award, Clock, ChevronRight, Moon, Sun } from 'lucide-react';
+import { Zap, Phone, Menu, X, Lightbulb, CheckCircle2, ArrowRight, Shield, Award, Clock, ChevronRight, Moon, Sun, Building2, Home, Store, Briefcase, Stethoscope, BookOpen, PawPrint, Sparkles, ShoppingBag, WashingMachine, Building } from 'lucide-react';
 import electricianImage from './assets/images/Gemini_Generated_Image_hyt6k2hyt6k2hyt6.png';
 
 // Types
@@ -15,13 +15,23 @@ interface Service {
     title: string;
     desc: string;
     features: string[];
-    hoverImage: string;
 }
 
 interface Project {
     title: string;
     type: string;
     image: string;
+}
+
+interface Sector {
+    icon: React.FC<{ className?: string }>;
+    title: string;
+    desc: string;
+}
+
+interface CustomerType {
+    icon: React.FC<{ className?: string }>;
+    name: string;
 }
 
 interface ThemeContextType {
@@ -173,6 +183,17 @@ const EarthIcon: React.FC = () => (
     </svg>
 );
 
+// Custom Scissors Icon for Beauty Salon
+const ScissorsIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="6" cy="6" r="3" />
+        <path d="M8.12 8.12 12 12" />
+        <path d="M20 4 8.12 15.88" />
+        <circle cx="6" cy="18" r="3" />
+        <path d="M14.8 14.8 20 20" />
+    </svg>
+);
+
 const ElectricianWebsite: React.FC = () => {
     const { isDark, toggleTheme } = useTheme();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -182,7 +203,7 @@ const ElectricianWebsite: React.FC = () => {
     useEffect(() => {
         const handleScroll = () => {
             setScrollY(window.scrollY);
-            const sections = ['home', 'about', 'services', 'projects', 'contact'];
+            const sections = ['home', 'about', 'sectors', 'services', 'projects', 'contact'];
             for (const section of sections) {
                 const el = document.getElementById(section);
                 if (el && window.scrollY >= el.offsetTop - 100) setActiveSection(section);
@@ -198,62 +219,14 @@ const ElectricianWebsite: React.FC = () => {
     };
 
     const services: Service[] = [
-        { 
-            icon: CableIcon, 
-            title: 'Electrical Re-wiring', 
-            desc: 'Complete electrical re-wiring services for HDB, condos, and landed properties.', 
-            features: ['Full House Re-wiring', 'Partial Re-wiring', 'Cable Upgrades', 'Safety Compliance'],
-            hoverImage: 'https://images.unsplash.com/photo-1545259742-b4fd8fea67e4?w=800&h=600&fit=crop'
-        },
-        { 
-            icon: () => <Zap className="w-7 h-7" />, 
-            title: 'Distribution Board (DB)', 
-            desc: 'Professional DB box installation and component replacement including MCB, RCCB, ELR, and EFR.', 
-            features: ['DB Box Installation', 'MCB Replacement', 'RCCB Installation', 'ELR/EFR Upgrade'],
-            hoverImage: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&h=600&fit=crop'
-        },
-        { 
-            icon: () => <Lightbulb className="w-7 h-7" />, 
-            title: 'Light Fittings', 
-            desc: 'Modern lighting solutions including LED lights, downlights, and track lights.', 
-            features: ['LED Lights', 'Downlights', 'Track Lights', 'Feature Lighting'],
-            hoverImage: 'https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=800&h=600&fit=crop'
-        },
-        { 
-            icon: FanIcon, 
-            title: 'Ceiling Fans', 
-            desc: 'Expert ceiling fan installation and replacement services for all brands.', 
-            features: ['New Installation', 'Fan Replacement', 'All Brands', 'Speed Control Setup'],
-            hoverImage: 'https://images.unsplash.com/photo-1628624747186-a941c476b7ef?w=800&h=600&fit=crop'
-        },
-        { 
-            icon: PlugIcon, 
-            title: 'Power Sockets & Switches', 
-            desc: 'Installation of electrical power sockets, switches, and isolators.', 
-            features: ['Power Sockets', 'Light Switches', 'Isolator Installation', 'USB Outlets'],
-            hoverImage: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=800&h=600&fit=crop'
-        },
-        { 
-            icon: DropletsIcon, 
-            title: 'Water Heater', 
-            desc: 'Professional installation of instant and storage water heaters.', 
-            features: ['Instant Heaters', 'Storage Heaters', 'Replacement', 'Safety Check'],
-            hoverImage: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=600&fit=crop'
-        },
-        { 
-            icon: LightningIcon, 
-            title: 'Lightning Protection', 
-            desc: 'Comprehensive lightning protection system installation.', 
-            features: ['Risk Assessment', 'System Design', 'Installation', 'Maintenance'],
-            hoverImage: 'https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?w=800&h=600&fit=crop'
-        },
-        { 
-            icon: EarthIcon, 
-            title: 'Earthing System', 
-            desc: 'Professional earthing system installation and testing.', 
-            features: ['Earth Rod Installation', 'Earth Testing', 'System Upgrade', 'Compliance Check'],
-            hoverImage: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&h=600&fit=crop'
-        },
+        { icon: CableIcon, title: 'Electrical Re-wiring', desc: 'Complete electrical re-wiring services for HDB, condos, and landed properties.', features: ['Full House Re-wiring', 'Partial Re-wiring', 'Cable Upgrades', 'Safety Compliance'] },
+        { icon: () => <Zap className="w-7 h-7" />, title: 'Distribution Board (DB)', desc: 'Professional DB box installation and component replacement including MCB, RCCB, ELR, and EFR.', features: ['DB Box Installation', 'MCB Replacement', 'RCCB Installation', 'ELR/EFR Upgrade'] },
+        { icon: () => <Lightbulb className="w-7 h-7" />, title: 'Light Fittings', desc: 'Modern lighting solutions including LED lights, downlights, and track lights.', features: ['LED Lights', 'Downlights', 'Track Lights', 'Feature Lighting'] },
+        { icon: FanIcon, title: 'Ceiling Fans', desc: 'Expert ceiling fan installation and replacement services for all brands.', features: ['New Installation', 'Fan Replacement', 'All Brands', 'Speed Control Setup'] },
+        { icon: PlugIcon, title: 'Power Sockets & Switches', desc: 'Installation of electrical power sockets, switches, and isolators.', features: ['Power Sockets', 'Light Switches', 'Isolator Installation', 'USB Outlets'] },
+        { icon: DropletsIcon, title: 'Water Heater', desc: 'Professional installation of instant and storage water heaters.', features: ['Instant Heaters', 'Storage Heaters', 'Replacement', 'Safety Check'] },
+        { icon: LightningIcon, title: 'Lightning Protection', desc: 'Comprehensive lightning protection system installation.', features: ['Risk Assessment', 'System Design', 'Installation', 'Maintenance'] },
+        { icon: EarthIcon, title: 'Earthing System', desc: 'Professional earthing system installation and testing.', features: ['Earth Rod Installation', 'Earth Testing', 'System Upgrade', 'Compliance Check'] },
     ];
 
     const stats: Stat[] = [
@@ -270,7 +243,36 @@ const ElectricianWebsite: React.FC = () => {
         { title: 'Factory Earthing System', type: 'Industrial', image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&h=400&fit=crop' },
     ];
 
-    const navItems: string[] = ['Home', 'About', 'Services', 'Projects', 'Contact'];
+    const sectors: Sector[] = [
+        { 
+            icon: Home, 
+            title: 'Residential', 
+            desc: 'HDB flats, condominiums, and private apartments across Singapore' 
+        },
+        { 
+            icon: Store, 
+            title: 'Commercial / Small Retail', 
+            desc: 'Shops, retail outlets, and commercial spaces of all sizes' 
+        },
+        { 
+            icon: Briefcase, 
+            title: 'Small and Medium Enterprise', 
+            desc: 'SME offices, warehouses, and business facilities' 
+        },
+    ];
+
+    const customerTypes: CustomerType[] = [
+        { icon: Stethoscope, name: 'Clinics' },
+        { icon: BookOpen, name: 'Tuition Centres' },
+        { icon: Building, name: 'Small Offices' },
+        { icon: PawPrint, name: 'Pet Shops' },
+        { icon: ScissorsIcon, name: 'Beauty Salons' },
+        { icon: ShoppingBag, name: 'Retail Shops' },
+        { icon: WashingMachine, name: 'Laundry Shops' },
+        { icon: Building2, name: 'Landed Residential' },
+    ];
+
+    const navItems: string[] = ['Home', 'About', 'Sectors', 'Services', 'Projects', 'Contact'];
 
     // Theme-aware colors
     const theme: ThemeColors = {
@@ -360,54 +362,18 @@ const ElectricianWebsite: React.FC = () => {
           box-shadow: 0 0 40px rgba(248, 113, 113, 0.2);
         }
 
-        .service-card-backdrop {
-          position: absolute;
-          inset: 0;
-          opacity: 0;
-          transition: opacity 0.4s ease-in-out;
-          z-index: 0;
-          border-radius: inherit;
-          overflow: hidden;
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
         }
         
-        .service-card-backdrop img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transform: scale(1.1);
-          transition: transform 0.4s ease-in-out;
+        .float-animation {
+          animation: float 3s ease-in-out infinite;
         }
         
-        .service-card-backdrop::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 100%);
-        }
-        
-        .service-card:hover .service-card-backdrop {
-          opacity: 1;
-        }
-        
-        .service-card:hover .service-card-backdrop img {
-          transform: scale(1);
-        }
-        
-        .service-card-content {
-          position: relative;
-          z-index: 1;
-        }
-        
-        .service-card:hover .service-card-content {
-          color: white;
-        }
-        
-        .service-card:hover .service-card-content .text-muted {
-          color: rgba(255, 255, 255, 0.8) !important;
-        }
-        
-        .service-card:hover .service-card-content .icon-wrapper {
-          background: linear-gradient(135deg, #B91C1C 0%, #DC2626 50%, #EF4444 100%) !important;
+        .float-animation-delay {
+          animation: float 3s ease-in-out infinite;
+          animation-delay: 1.5s;
         }
       `}</style>
 
@@ -460,9 +426,9 @@ const ElectricianWebsite: React.FC = () => {
                                 )}
                             </button>
 
-                            <a href="tel:+6589798281" className="hidden sm:flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 btn-gradient text-white font-semibold rounded-xl shadow-lg text-sm sm:text-base glow-red">
+                            <a href="tel:+6591234567" className="hidden sm:flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 btn-gradient text-white font-semibold rounded-xl shadow-lg text-sm sm:text-base glow-red">
                                 <Phone className="w-4 h-4" />
-                                <span className="hidden md:inline">+65 8979 8281</span>
+                                <span className="hidden md:inline">+65 9123 4567</span>
                                 <span className="md:hidden">Call</span>
                             </a>
 
@@ -484,8 +450,8 @@ const ElectricianWebsite: React.FC = () => {
                                     {item}
                                 </button>
                             ))}
-                            <a href="tel:+6589798281" className="flex items-center justify-center gap-2 mt-4 px-6 py-3 btn-gradient text-white font-semibold rounded-xl">
-                                <Phone className="w-4 h-4" /><span>+65 8979 8281</span>
+                            <a href="tel:+6591234567" className="flex items-center justify-center gap-2 mt-4 px-6 py-3 btn-gradient text-white font-semibold rounded-xl">
+                                <Phone className="w-4 h-4" /><span>+65 9123 4567</span>
                             </a>
                         </div>
                     )}
@@ -587,22 +553,29 @@ const ElectricianWebsite: React.FC = () => {
                 </div>
             </section>
 
+            {/* Sectors We Serve Section */}
+            <section id="sectors" className={`py-16 sm:py-24 ${theme.bg}`}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <SectorsContent sectors={sectors} customerTypes={customerTypes} theme={theme} isDark={isDark} />
+                </div>
+            </section>
+
             {/* Services Section */}
-            <section id="services" className={`py-16 sm:py-24 ${theme.bg}`}>
+            <section id="services" className={`py-16 sm:py-24 ${theme.bgAlt}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <ServicesContent services={services} theme={theme} isDark={isDark} />
                 </div>
             </section>
 
             {/* Projects Section */}
-            <section id="projects" className={`py-16 sm:py-24 ${theme.bgAlt}`}>
+            <section id="projects" className={`py-16 sm:py-24 ${theme.bg}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <ProjectsContent projects={projects} theme={theme} isDark={isDark} />
                 </div>
             </section>
 
             {/* Contact Section */}
-            <section id="contact" className={`py-16 sm:py-24 ${theme.bg}`}>
+            <section id="contact" className={`py-16 sm:py-24 ${theme.bgAlt}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <ContactContent theme={theme} isDark={isDark} />
                 </div>
@@ -642,7 +615,7 @@ const ElectricianWebsite: React.FC = () => {
                                     <Phone className="w-6 h-6 text-white" />
                                 </div>
                                 <div>
-                                    <p className="text-white font-semibold">+65 8979 8281</p>
+                                    <p className="text-white font-semibold">+65 9123 4567</p>
                                     <p className="text-xs text-red-300">24/7 Emergency Line</p>
                                 </div>
                             </div>
@@ -655,14 +628,14 @@ const ElectricianWebsite: React.FC = () => {
             </footer>
 
             {/* WhatsApp Button */}
-            <a href="https://wa.me/6589798281" target="_blank" rel="noopener noreferrer" className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50">
+            <a href="https://wa.me/6591234567" target="_blank" rel="noopener noreferrer" className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50">
                 <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7 text-white fill-current">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
             </a>
 
             {/* Mobile Call Button */}
-            <a href="tel:+6589798281" className="sm:hidden fixed bottom-4 left-4 w-12 h-12 btn-gradient rounded-full flex items-center justify-center shadow-lg z-50 glow-red">
+            <a href="tel:+6591234567" className="sm:hidden fixed bottom-4 left-4 w-12 h-12 btn-gradient rounded-full flex items-center justify-center shadow-lg z-50 glow-red">
                 <Phone className="w-6 h-6 text-white" />
             </a>
         </div>
@@ -739,6 +712,98 @@ const AboutContent: React.FC<AboutContentProps> = ({ stats, theme, isDark }) => 
     );
 };
 
+// Sectors We Serve Content Component
+interface SectorsContentProps {
+    sectors: Sector[];
+    customerTypes: CustomerType[];
+    theme: ThemeColors;
+    isDark: boolean;
+}
+
+const SectorsContent: React.FC<SectorsContentProps> = ({ sectors, customerTypes, theme, isDark }) => {
+    const [ref, isInView] = useInView();
+
+    return (
+        <div ref={ref}>
+            <div className="text-center mb-12 sm:mb-16">
+                <span className={`inline-block px-4 py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-4`}>Industries</span>
+                <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+                    Which Sectors <span className={isDark ? 'gradient-text-dark' : 'gradient-text'}>We Serve</span>
+                </h2>
+                <p className={`${theme.textMuted} max-w-2xl mx-auto text-sm sm:text-base ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
+                    From homes to businesses, we provide reliable electrical solutions across multiple sectors in Singapore.
+                </p>
+            </div>
+
+            {/* Main Sectors */}
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-16">
+                {sectors.map((sector, i) => (
+                    <div
+                        key={i}
+                        className={`group relative p-6 sm:p-8 ${theme.bgCard} rounded-3xl border ${theme.borderLight} hover:border-red-500/30 transition-all duration-500 card-hover overflow-hidden ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
+                        style={{ animationDelay: `${(i + 2) * 0.1}s` }}
+                    >
+                        {/* Background Glow Effect */}
+                        <div className={`absolute -top-20 -right-20 w-40 h-40 ${isDark ? 'bg-red-600/10' : 'bg-red-100'} rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700`}></div>
+                        
+                        <div className="relative z-10">
+                            <div className="w-16 h-16 sm:w-20 sm:h-20 btn-gradient rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg glow-red float-animation">
+                                <sector.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                            </div>
+                            <h3 className={`text-xl sm:text-2xl font-bold mb-3 ${theme.text}`}>{sector.title}</h3>
+                            <p className={`${theme.textMuted} text-sm sm:text-base`}>{sector.desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Repeated Customers Section */}
+            <div className={`${theme.bgCard} rounded-3xl border ${theme.borderLight} p-8 sm:p-12 ${isInView ? 'animate-fade-up animate-delay-300' : 'opacity-0'}`}>
+                <div className="text-center mb-8 sm:mb-10">
+                    <div className="inline-flex items-center gap-2 mb-4">
+                        <Sparkles className="w-5 h-5 text-red-500" />
+                        <span className={`text-sm font-semibold ${isDark ? 'text-red-400' : 'text-red-600'} uppercase tracking-wider`}>Trusted By Many</span>
+                        <Sparkles className="w-5 h-5 text-red-500" />
+                    </div>
+                    <h3 className={`text-2xl sm:text-3xl font-bold ${theme.text}`}>Our Repeated Customers</h3>
+                    <p className={`${theme.textMuted} mt-2 text-sm sm:text-base`}>Business types that trust us for their electrical needs</p>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                    {customerTypes.map((customer, i) => (
+                        <div
+                            key={i}
+                            className={`group flex flex-col items-center p-4 sm:p-6 ${theme.bg} rounded-2xl border ${theme.borderLight} hover:border-red-500/50 transition-all duration-300 cursor-pointer hover:shadow-lg`}
+                            style={{ animationDelay: `${(i + 4) * 0.05}s` }}
+                        >
+                            <div className={`w-12 h-12 sm:w-14 sm:h-14 ${isDark ? 'bg-red-900/30' : 'bg-red-50'} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform group-hover:bg-red-500`}>
+                                <customer.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${isDark ? 'text-red-400' : 'text-red-600'} group-hover:text-white transition-colors`} />
+                            </div>
+                            <span className={`text-sm sm:text-base font-medium ${theme.text} text-center`}>{customer.name}</span>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Trust Indicators */}
+                <div className={`mt-8 sm:mt-10 pt-8 border-t ${theme.borderLight} flex flex-wrap justify-center gap-6 sm:gap-10`}>
+                    <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-green-500" />
+                        <span className={`text-sm ${theme.textMuted}`}>Long-term Partnerships</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-green-500" />
+                        <span className={`text-sm ${theme.textMuted}`}>Priority Response</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-green-500" />
+                        <span className={`text-sm ${theme.textMuted}`}>Special Rates for Regulars</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 // Services Content Component
 interface ServicesContentProps {
     services: Service[];
@@ -765,29 +830,21 @@ const ServicesContent: React.FC<ServicesContentProps> = ({ services, theme, isDa
                 {services.map((service, i) => (
                     <div
                         key={i}
-                        className={`service-card group relative p-4 sm:p-6 ${theme.bgCard} rounded-2xl border ${theme.borderLight} hover:border-red-500/30 transition-all duration-300 card-hover cursor-pointer overflow-hidden ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
+                        className={`group p-4 sm:p-6 ${theme.bgCard} rounded-2xl border ${theme.borderLight} hover:border-red-500/30 transition-all duration-300 card-hover cursor-pointer ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
                         style={{ animationDelay: `${(i + 2) * 0.05}s` }}
                     >
-                        {/* Backdrop Image */}
-                        <div className="service-card-backdrop">
-                            <img src={service.hoverImage} alt={service.title} />
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 btn-gradient rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg text-white">
+                            <service.icon />
                         </div>
-                        
-                        {/* Content */}
-                        <div className="service-card-content">
-                            <div className={`icon-wrapper w-12 h-12 sm:w-14 sm:h-14 btn-gradient rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg text-white`}>
-                                <service.icon />
-                            </div>
-                            <h3 className="text-base sm:text-lg font-semibold mb-2">{service.title}</h3>
-                            <p className={`text-muted ${theme.textMuted} text-xs sm:text-sm mb-4`}>{service.desc}</p>
-                            <ul className="space-y-1.5 sm:space-y-2">
-                                {service.features.map((feature, j) => (
-                                    <li key={j} className={`flex items-center gap-2 text-xs sm:text-sm text-muted ${theme.textMuted}`}>
-                                        <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500 flex-shrink-0" />{feature}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <h3 className="text-base sm:text-lg font-semibold mb-2">{service.title}</h3>
+                        <p className={`${theme.textMuted} text-xs sm:text-sm mb-4`}>{service.desc}</p>
+                        <ul className="space-y-1.5 sm:space-y-2">
+                            {service.features.map((feature, j) => (
+                                <li key={j} className={`flex items-center gap-2 text-xs sm:text-sm ${theme.textMuted}`}>
+                                    <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500 flex-shrink-0" />{feature}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 ))}
             </div>
@@ -861,7 +918,7 @@ const ContactContent: React.FC<ContactContentProps> = ({ theme, isDark }) => {
             <div className={`max-w-lg mx-auto ${isInView ? 'animate-fade-up animate-delay-200' : 'opacity-0'}`}>
                 {/* Large Call Button */}
                 <a
-                    href="tel:+6589798281"
+                    href="tel:+6591234567"
                     className={`block p-6 sm:p-8 ${theme.bgCard} rounded-3xl border ${theme.borderLight} shadow-xl hover:shadow-2xl transition-all duration-300 card-hover`}
                 >
                     <div className="flex flex-col items-center text-center">
@@ -869,7 +926,7 @@ const ContactContent: React.FC<ContactContentProps> = ({ theme, isDark }) => {
                             <Phone className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                         </div>
                         <h3 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-2`}>Call Us Now</h3>
-                        <p className="text-3xl sm:text-4xl font-bold text-red-500 mb-3">+65 8979 8281</p>
+                        <p className="text-3xl sm:text-4xl font-bold text-red-500 mb-3">+65 9123 4567</p>
                         <p className={`text-sm ${theme.textMuted}`}>24/7 Emergency Line Available</p>
 
                         <div className={`mt-6 w-full p-4 ${isDark ? 'bg-red-900/30' : 'bg-red-50'} rounded-xl border ${isDark ? 'border-red-800/50' : 'border-red-200'}`}>
@@ -885,7 +942,7 @@ const ContactContent: React.FC<ContactContentProps> = ({ theme, isDark }) => {
 
                 {/* WhatsApp Alternative */}
                 <a
-                    href="https://wa.me/6589798281"
+                    href="https://wa.me/6591234567"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex items-center justify-center gap-3 mt-6 p-4 ${theme.bgCard} rounded-xl border ${theme.borderLight} hover:border-green-500/50 transition-all group`}
