@@ -17,11 +17,6 @@ interface Service {
     features: string[];
 }
 
-interface Project {
-    title: string;
-    type: string;
-    image: string;
-}
 
 interface Sector {
     icon: React.FC<{ className?: string }>;
@@ -904,7 +899,7 @@ const ContactContent: React.FC<ContactContentProps> = ({ theme, isDark }) => {
                 </a>
             </div>
         </div>
-    );
+    );  
 };
 
 // Main App with Theme Provider

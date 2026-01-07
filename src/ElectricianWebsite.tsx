@@ -17,12 +17,6 @@ interface Service {
     features: string[];
 }
 
-interface Project {
-    title: string;
-    type: string;
-    image: string;
-}
-
 interface ThemeContextType {
     isDark: boolean;
     toggleTheme: () => void;
@@ -214,12 +208,6 @@ const ElectricianWebsite: React.FC = () => {
         { value: 50, suffix: '+', label: 'Team Members' },
     ];
 
-    const projects: Project[] = [
-        { title: 'HDB 5-Room Full Rewiring', type: 'Residential', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop' },
-        { title: 'Office Building DB Upgrade', type: 'Commercial', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop' },
-        { title: 'Condo Lighting Installation', type: 'Residential', image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&h=400&fit=crop' },
-        { title: 'Factory Earthing System', type: 'Industrial', image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&h=400&fit=crop' },
-    ];
 
     const navItems: string[] = ['Home', 'About', 'Services', 'Projects', 'Contact'];
 
