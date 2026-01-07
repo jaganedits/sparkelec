@@ -181,7 +181,7 @@ const ElectricianWebsite: React.FC = () => {
     useEffect(() => {
         const handleScroll = () => {
             setScrollY(window.scrollY);
-            const sections = ['home', 'about', 'services', 'projects', 'contact'];
+            const sections = ['home', 'about', 'services',  'contact'];
             for (const section of sections) {
                 const el = document.getElementById(section);
                 if (el && window.scrollY >= el.offsetTop - 100) setActiveSection(section);
@@ -495,12 +495,6 @@ const ElectricianWebsite: React.FC = () => {
                 </div>
             </section>
 
-            {/* Projects Section */}
-            <section id="projects" className={`py-16 sm:py-24 ${theme.bgAlt}`}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <ProjectsContent projects={projects} theme={theme} isDark={isDark} />
-                </div>
-            </section>
 
             {/* Contact Section */}
             <section id="contact" className={`py-16 sm:py-24 ${theme.bg}`}>
@@ -688,47 +682,6 @@ const ServicesContent: React.FC<ServicesContentProps> = ({ services, theme, isDa
     );
 };
 
-// Projects Content Component
-interface ProjectsContentProps {
-    projects: Project[];
-    theme: ThemeColors;
-    isDark: boolean;
-}
-
-const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, theme, isDark }) => {
-    const [ref, isInView] = useInView();
-
-    return (
-        <div ref={ref}>
-            <div className="text-center mb-12 sm:mb-16">
-                <span className={`inline-block px-4 py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-4`}>Our Work</span>
-                <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                    Featured <span className={isDark ? 'gradient-text-dark' : 'gradient-text'}>Projects</span>
-                </h2>
-                <p className={`${theme.textMuted} max-w-2xl mx-auto text-sm sm:text-base ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
-                    Explore some of our recent electrical installations across Singapore.
-                </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                {projects.map((project, i) => (
-                    <div
-                        key={i}
-                        className={`group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
-                        style={{ animationDelay: `${(i + 2) * 0.1}s` }}
-                    >
-                        <img src={project.image} alt={project.title} className="w-full h-48 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 right-4">
-                            <span className="inline-block px-3 py-1 btn-gradient text-white text-xs font-semibold rounded-full mb-2">{project.type}</span>
-                            <h3 className="text-base sm:text-lg font-semibold text-white">{project.title}</h3>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
 
 // Contact Content Component - SIMPLIFIED TO ONLY SHOW PHONE
 interface ContactContentProps {

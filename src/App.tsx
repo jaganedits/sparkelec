@@ -203,7 +203,7 @@ const ElectricianWebsite: React.FC = () => {
     useEffect(() => {
         const handleScroll = () => {
             setScrollY(window.scrollY);
-            const sections = ['home', 'about', 'sectors', 'services', 'projects', 'contact'];
+            const sections = ['home', 'about', 'sectors', 'services', 'contact'];
             for (const section of sections) {
                 const el = document.getElementById(section);
                 if (el && window.scrollY >= el.offsetTop - 100) setActiveSection(section);
@@ -236,28 +236,22 @@ const ElectricianWebsite: React.FC = () => {
         { value: 50, suffix: '+', label: 'Team Members' },
     ];
 
-    const projects: Project[] = [
-        { title: 'HDB 5-Room Full Rewiring', type: 'Residential', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop' },
-        { title: 'Office Building DB Upgrade', type: 'Commercial', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop' },
-        { title: 'Condo Lighting Installation', type: 'Residential', image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&h=400&fit=crop' },
-        { title: 'Factory Earthing System', type: 'Industrial', image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&h=400&fit=crop' },
-    ];
 
     const sectors: Sector[] = [
-        { 
-            icon: Home, 
-            title: 'Residential', 
-            desc: 'HDB flats, condominiums, and private apartments across Singapore' 
+        {
+            icon: Home,
+            title: 'Residential',
+            desc: 'HDB flats, condominiums, and private apartments across Singapore'
         },
-        { 
-            icon: Store, 
-            title: 'Commercial / Small Retail', 
-            desc: 'Shops, retail outlets, and commercial spaces of all sizes' 
+        {
+            icon: Store,
+            title: 'Commercial / Small Retail',
+            desc: 'Shops, retail outlets, and commercial spaces of all sizes'
         },
-        { 
-            icon: Briefcase, 
-            title: 'Small and Medium Enterprise', 
-            desc: 'SME offices, warehouses, and business facilities' 
+        {
+            icon: Briefcase,
+            title: 'Small and Medium Enterprise',
+            desc: 'SME offices, warehouses, and business facilities'
         },
     ];
 
@@ -272,7 +266,7 @@ const ElectricianWebsite: React.FC = () => {
         { icon: Building2, name: 'Landed Residential' },
     ];
 
-    const navItems: string[] = ['Home', 'About', 'Sectors', 'Services', 'Projects', 'Contact'];
+    const navItems: string[] = ['Home', 'About', 'Sectors', 'Services', 'Contact'];
 
     // Theme-aware colors
     const theme: ThemeColors = {
@@ -379,8 +373,8 @@ const ElectricianWebsite: React.FC = () => {
 
             {/* Navigation */}
             <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrollY > 50
-                    ? `${theme.bgAlt} shadow-lg ${isDark ? 'shadow-red-950/20' : 'shadow-red-100/50'}`
-                    : 'bg-transparent'
+                ? `${theme.bgAlt} shadow-lg ${isDark ? 'shadow-red-950/20' : 'shadow-red-100/50'}`
+                : 'bg-transparent'
                 }`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
                     <div className="flex items-center justify-between">
@@ -401,8 +395,8 @@ const ElectricianWebsite: React.FC = () => {
                                     key={item}
                                     onClick={() => scrollToSection(item.toLowerCase())}
                                     className={`relative py-2 text-sm font-medium transition-colors ${activeSection === item.toLowerCase()
-                                            ? 'text-red-500'
-                                            : `${theme.textMuted} hover:text-red-500`
+                                        ? 'text-red-500'
+                                        : `${theme.textMuted} hover:text-red-500`
                                         }`}
                                 >
                                     {item}
@@ -426,9 +420,9 @@ const ElectricianWebsite: React.FC = () => {
                                 )}
                             </button>
 
-                            <a href="tel:+6591234567" className="hidden sm:flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 btn-gradient text-white font-semibold rounded-xl shadow-lg text-sm sm:text-base glow-red">
-                                <Phone className="w-4 h-4" />
-                                <span className="hidden md:inline">+65 9123 4567</span>
+                            <a href="tel:+6589798281" className="hidden sm:flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 btn-gradient text-white font-semibold rounded-lg sm:rounded-xl shadow-lg text-xs sm:text-sm md:text-base glow-red">
+                                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                <span className="hidden md:inline">+65 8979 8281</span>
                                 <span className="md:hidden">Call</span>
                             </a>
 
@@ -450,8 +444,8 @@ const ElectricianWebsite: React.FC = () => {
                                     {item}
                                 </button>
                             ))}
-                            <a href="tel:+6591234567" className="flex items-center justify-center gap-2 mt-4 px-6 py-3 btn-gradient text-white font-semibold rounded-xl">
-                                <Phone className="w-4 h-4" /><span>+65 9123 4567</span>
+                            <a href="tel:+6589798281" className="flex items-center justify-center gap-2 mt-4 px-5 py-2.5 sm:px-6 sm:py-3 btn-gradient text-white font-semibold rounded-xl text-sm sm:text-base">
+                                <Phone className="w-4 h-4" /><span>+65 8979 8281</span>
                             </a>
                         </div>
                     )}
@@ -461,8 +455,8 @@ const ElectricianWebsite: React.FC = () => {
             {/* Hero Section */}
             <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden ${isDark ? 'hero-pattern-dark' : 'hero-pattern-light'}`}>
                 <div className={`absolute inset-0 ${isDark
-                        ? 'bg-gradient-to-br from-gray-950 via-gray-900 to-red-950/30'
-                        : 'bg-gradient-to-br from-red-50 via-white to-orange-50'
+                    ? 'bg-gradient-to-br from-gray-950 via-gray-900 to-red-950/30'
+                    : 'bg-gradient-to-br from-red-50 via-white to-orange-50'
                     }`}></div>
                 <div className={`absolute top-20 right-0 w-72 sm:w-96 h-72 sm:h-96 ${isDark ? 'bg-red-600' : 'bg-red-400'} rounded-full blur-3xl opacity-20`}></div>
                 <div className={`absolute bottom-20 left-0 w-64 sm:w-80 h-64 sm:h-80 ${isDark ? 'bg-orange-600' : 'bg-orange-400'} rounded-full blur-3xl opacity-20`}></div>
@@ -477,60 +471,60 @@ const ElectricianWebsite: React.FC = () => {
                                 </span>
                             </div>
 
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 animate-fade-up animate-delay-100">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-4 sm:mb-6 animate-fade-up animate-delay-100">
                                 <span className={theme.text}>Your Trusted</span><br />
                                 <span className={isDark ? 'gradient-text-dark' : 'gradient-text'}>Electrical</span><br />
                                 <span className={theme.text}>Experts</span>
                             </h1>
 
-                            <p className={`text-base sm:text-lg md:text-xl ${theme.textMuted} mb-8 max-w-lg mx-auto lg:mx-0 animate-fade-up animate-delay-200`}>
-                                Professional electrical services for HDB, condos, landed properties, and commercial spaces. Quality work, fair pricing, and 24/7 emergency support.
+                            <p className={`text-sm sm:text-base md:text-lg lg:text-xl ${theme.textMuted} mb-6 sm:mb-8 max-w-md sm:max-w-lg mx-auto lg:mx-0 animate-fade-up animate-delay-200 px-2 sm:px-0`}>
+                                Professional electrical services to Residential Homes from Good Class Bungalows, Condominiums to Co-Living Spaces; Small & Medium Business Owners from Commercial Offices to Retail Shop Spaces and small Factories.
+                                <br className="hidden sm:block" /><br className="hidden sm:block" />
+                                <span className="block mt-3 sm:mt-0">Quality workmanship, fair pricing and 24/7 support.</span>
                             </p>
 
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-up animate-delay-300">
-                                <button onClick={() => scrollToSection('contact')} className="group flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 btn-gradient text-white font-semibold rounded-xl shadow-lg glow-red">
-                                    Get Free Quote<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-fade-up animate-delay-300 px-2 sm:px-0">
+                                <button onClick={() => scrollToSection('contact')} className="group flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 btn-gradient text-white font-semibold rounded-xl shadow-lg glow-red text-sm sm:text-base">
+                                    Get Free Quote<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
                                 <button
                                     onClick={() => scrollToSection('services')}
-                                    className={`flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 ${theme.bgCard} border-2 border-red-600 text-red-500 font-semibold rounded-xl hover:bg-red-600 hover:text-white transition-all`}
+                                    className={`flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 ${theme.bgCard} border-2 border-red-600 text-red-500 font-semibold rounded-xl hover:bg-red-600 hover:text-white transition-all text-sm sm:text-base`}
                                 >
-                                    Our Services<ChevronRight className="w-5 h-5" />
+                                    Our Services<ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                                 </button>
                             </div>
 
-                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-10 sm:mt-12 animate-fade-up">
-                                <div className={`flex items-center gap-2 ${theme.bgCard} px-4 py-2 rounded-full shadow-md border ${theme.borderLight}`}>
-                                    <Shield className="w-5 h-5 text-red-500" /><span className={`text-sm ${theme.text} font-medium`}>EMA Licensed</span>
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 md:gap-6 mt-8 sm:mt-10 md:mt-12 animate-fade-up px-2 sm:px-0">
+                                <div className={`flex items-center gap-1.5 sm:gap-2 ${theme.bgCard} px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-md border ${theme.borderLight}`}>
+                                    <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" /><span className={`text-xs sm:text-sm ${theme.text} font-medium`}>EMA Licensed</span>
                                 </div>
-                                <div className={`flex items-center gap-2 ${theme.bgCard} px-4 py-2 rounded-full shadow-md border ${theme.borderLight}`}>
-                                    <Award className="w-5 h-5 text-red-500" /><span className={`text-sm ${theme.text} font-medium`}>BCA Registered</span>
-                                </div>
-                                <div className={`flex items-center gap-2 ${theme.bgCard} px-4 py-2 rounded-full shadow-md border ${theme.borderLight}`}>
-                                    <Clock className="w-5 h-5 text-red-500" /><span className={`text-sm ${theme.text} font-medium`}>24/7 Emergency</span>
+
+                                <div className={`flex items-center gap-1.5 sm:gap-2 ${theme.bgCard} px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-md border ${theme.borderLight}`}>
+                                    <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" /><span className={`text-xs sm:text-sm ${theme.text} font-medium`}>24/7 Emergency</span>
                                 </div>
                             </div>
                         </div>
 
                         <div className="relative animate-fade-up animate-delay-300 mt-8 lg:mt-0">
-                            <div className="relative w-full aspect-square max-w-md mx-auto lg:max-w-none">
-                                <div className="absolute inset-4 sm:inset-8 bg-gradient-to-br from-red-600 to-orange-500 rounded-3xl transform rotate-6"></div>
-                                <div className={`relative ${theme.bgCard} rounded-3xl overflow-hidden shadow-2xl`}>
-                                    <img  src={electricianImage}  alt="Professional Electrician" className="w-full h-[500px] object-cover" />
+                            <div className="relative w-full max-w-sm sm:max-w-md mx-auto lg:max-w-lg">
+                                <div className="absolute inset-4 sm:inset-6 md:inset-8 bg-gradient-to-br from-red-600 to-orange-500 rounded-2xl sm:rounded-3xl transform rotate-6"></div>
+                                <div className={`relative ${theme.bgCard} rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl`}>
+                                    <img src={electricianImage} alt="Professional Electrician" className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover" />
                                 </div>
-                                <div className={`absolute -bottom-4 sm:-bottom-6 left-2 right-2 sm:left-4 sm:right-4 ${theme.bgCard} rounded-2xl p-4 sm:p-6 shadow-xl border ${theme.borderLight}`}>
-                                    <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
+                                <div className={`absolute -bottom-3 sm:-bottom-4 md:-bottom-6 left-2 right-2 sm:left-3 sm:right-3 md:left-4 md:right-4 ${theme.bgCard} rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-xl border ${theme.borderLight}`}>
+                                    <div className="grid grid-cols-3 gap-1 sm:gap-2 md:gap-4 text-center">
                                         <div>
-                                            <p className="text-xl sm:text-2xl font-bold text-red-500"><AnimatedCounter end={15} suffix="+" /></p>
-                                            <p className={`text-[10px] sm:text-xs ${theme.textLight}`}>Years Exp</p>
+                                            <p className="text-lg sm:text-xl md:text-2xl font-bold text-red-500"><AnimatedCounter end={15} suffix="+" /></p>
+                                            <p className={`text-[9px] sm:text-[10px] md:text-xs ${theme.textLight}`}>Years Exp</p>
                                         </div>
                                         <div className={`border-x ${theme.border}`}>
-                                            <p className="text-xl sm:text-2xl font-bold text-red-500"><AnimatedCounter end={2500} suffix="+" /></p>
-                                            <p className={`text-[10px] sm:text-xs ${theme.textLight}`}>Projects</p>
+                                            <p className="text-lg sm:text-xl md:text-2xl font-bold text-red-500"><AnimatedCounter end={2500} suffix="+" /></p>
+                                            <p className={`text-[9px] sm:text-[10px] md:text-xs ${theme.textLight}`}>Projects</p>
                                         </div>
                                         <div>
-                                            <p className="text-xl sm:text-2xl font-bold text-red-500"><AnimatedCounter end={98} suffix="%" /></p>
-                                            <p className={`text-[10px] sm:text-xs ${theme.textLight}`}>Satisfaction</p>
+                                            <p className="text-lg sm:text-xl md:text-2xl font-bold text-red-500"><AnimatedCounter end={98} suffix="%" /></p>
+                                            <p className={`text-[9px] sm:text-[10px] md:text-xs ${theme.textLight}`}>Satisfaction</p>
                                         </div>
                                     </div>
                                 </div>
@@ -567,12 +561,6 @@ const ElectricianWebsite: React.FC = () => {
                 </div>
             </section>
 
-            {/* Projects Section */}
-            <section id="projects" className={`py-16 sm:py-24 ${theme.bg}`}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <ProjectsContent projects={projects} theme={theme} isDark={isDark} />
-                </div>
-            </section>
 
             {/* Contact Section */}
             <section id="contact" className={`py-16 sm:py-24 ${theme.bgAlt}`}>
@@ -582,24 +570,24 @@ const ElectricianWebsite: React.FC = () => {
             </section>
 
             {/* Footer */}
-            <footer className={`py-12 ${isDark ? 'bg-gray-950' : 'bg-gray-900'} text-white`}>
+            <footer className={`py-8 sm:py-10 lg:py-12 ${isDark ? 'bg-gray-950' : 'bg-gray-900'} text-white`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-                        <div>
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="w-10 h-10 btn-gradient rounded-xl flex items-center justify-center">
-                                    <Zap className="w-6 h-6 text-white" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                        <div className="text-center sm:text-left">
+                            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 justify-center sm:justify-start">
+                                <div className="w-9 h-9 sm:w-10 sm:h-10 btn-gradient rounded-lg sm:rounded-xl flex items-center justify-center">
+                                    <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                 </div>
                                 <div>
-                                    <span className="text-lg font-bold text-red-400">SPARK</span>
-                                    <span className="text-lg font-bold">ELEC</span>
+                                    <span className="text-base sm:text-lg font-bold text-red-400">SPARK</span>
+                                    <span className="text-base sm:text-lg font-bold">ELEC</span>
                                 </div>
                             </div>
-                            <p className="text-gray-400 text-sm">Your trusted electrical partner in Singapore since 2009. Licensed, insured, and committed to quality.</p>
+                            <p className="text-gray-400 text-xs sm:text-sm max-w-xs mx-auto sm:mx-0">Your trusted electrical partner in Singapore since 2009. Licensed, insured, and committed to quality.</p>
                         </div>
-                        <div>
-                            <h4 className="font-semibold mb-4 text-white">Services</h4>
-                            <ul className="space-y-2 text-sm text-gray-400">
+                        <div className="text-center sm:text-left">
+                            <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base">Services</h4>
+                            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-400">
                                 <li className="hover:text-red-400 cursor-pointer transition-colors">Electrical Re-wiring</li>
                                 <li className="hover:text-red-400 cursor-pointer transition-colors">DB Installation</li>
                                 <li className="hover:text-red-400 cursor-pointer transition-colors">Light Fittings</li>
@@ -608,35 +596,35 @@ const ElectricianWebsite: React.FC = () => {
                                 <li className="hover:text-red-400 cursor-pointer transition-colors">Water Heaters</li>
                             </ul>
                         </div>
-                        <div>
-                            <h4 className="font-semibold mb-4 text-white">Contact</h4>
-                            <div className="flex items-center gap-3 p-4 bg-red-600/20 rounded-xl border border-red-600/30">
-                                <div className="w-12 h-12 btn-gradient rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <Phone className="w-6 h-6 text-white" />
+                        <div className="sm:col-span-2 lg:col-span-1">
+                            <h4 className="font-semibold mb-3 sm:mb-4 text-white text-sm sm:text-base text-center sm:text-left lg:text-left">Contact</h4>
+                            <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-red-600/20 rounded-lg sm:rounded-xl border border-red-600/30 max-w-xs mx-auto sm:mx-0 lg:mx-0">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 btn-gradient rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                 </div>
                                 <div>
-                                    <p className="text-white font-semibold">+65 9123 4567</p>
-                                    <p className="text-xs text-red-300">24/7 Emergency Line</p>
+                                    <p className="text-white font-semibold text-sm sm:text-base">+65 8979 8281</p>
+                                    <p className="text-[10px] sm:text-xs text-red-300">24/7 Emergency Line</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className={`flex flex-col sm:flex-row justify-between items-center pt-8 border-t ${isDark ? 'border-gray-800' : 'border-gray-700'} gap-4`}>
-                        <p className="text-sm text-gray-400 text-center sm:text-left">© 2025 SparkElec Pte Ltd. All rights reserved. UEN: 200912345A</p>
+                    <div className={`flex flex-col sm:flex-row justify-center sm:justify-between items-center pt-6 sm:pt-8 border-t ${isDark ? 'border-gray-800' : 'border-gray-700'} gap-2 sm:gap-4`}>
+                        <p className="text-xs sm:text-sm text-gray-400 text-center">© 2025 SparkElec Pte Ltd. All rights reserved.</p>
                     </div>
                 </div>
             </footer>
 
             {/* WhatsApp Button */}
-            <a href="https://wa.me/6591234567" target="_blank" rel="noopener noreferrer" className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50">
+            <a href="https://wa.me/6589798281" target="_blank" rel="noopener noreferrer" className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50">
                 <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7 text-white fill-current">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
             </a>
 
             {/* Mobile Call Button */}
-            <a href="tel:+6591234567" className="sm:hidden fixed bottom-4 left-4 w-12 h-12 btn-gradient rounded-full flex items-center justify-center shadow-lg z-50 glow-red">
-                <Phone className="w-6 h-6 text-white" />
+            <a href="tel:+6589798281" className="sm:hidden fixed bottom-4 left-4 w-11 h-11 btn-gradient rounded-full flex items-center justify-center shadow-lg z-50 glow-red">
+                <Phone className="w-5 h-5 text-white" />
             </a>
         </div>
     );
@@ -654,56 +642,56 @@ const AboutContent: React.FC<AboutContentProps> = ({ stats, theme, isDark }) => 
 
     return (
         <div ref={ref}>
-            <div className="text-center mb-12 sm:mb-16">
-                <span className={`inline-block px-4 py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-4`}>About Us</span>
-                <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                <span className={`inline-block px-3 sm:px-4 py-1 sm:py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-xs sm:text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-3 sm:mb-4`}>About Us</span>
+                <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
                     Singapore's <span className={isDark ? 'gradient-text-dark' : 'gradient-text'}>Trusted</span> Electricians
                 </h2>
-                <p className={`${theme.textMuted} max-w-2xl mx-auto text-sm sm:text-base ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
-                    For over 15 years, we've been delivering excellence in electrical services across Singapore. From HDB flats to commercial buildings, we handle it all.
+                <p className={`${theme.textMuted} max-w-2xl mx-auto text-xs sm:text-sm lg:text-base px-2 sm:px-0 ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
+                    For over 15 years, we've been delivering excellence in electrical services across Singapore.
                 </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-                <div className={`space-y-4 sm:space-y-6 ${isInView ? 'animate-fade-up animate-delay-200' : 'opacity-0'}`}>
-                    <div className={`p-4 sm:p-6 ${theme.bg} rounded-2xl border ${theme.borderLight} card-hover transition-all duration-300`}>
-                        <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
-                            <div className={`w-10 h-10 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-xl flex items-center justify-center`}>
-                                <Shield className="w-5 h-5 text-red-500" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+                <div className={`space-y-3 sm:space-y-4 lg:space-y-6 ${isInView ? 'animate-fade-up animate-delay-200' : 'opacity-0'}`}>
+                    <div className={`p-4 sm:p-5 lg:p-6 ${theme.bg} rounded-xl sm:rounded-2xl border ${theme.borderLight} card-hover transition-all duration-300`}>
+                        <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
+                            <div className={`w-9 h-9 sm:w-10 sm:h-10 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}>
+                                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
                             </div>
                             Safety First Approach
                         </h3>
-                        <p className={`${theme.textMuted} text-sm sm:text-base`}>Every project adheres to SS 638 standards and EMA regulations. We never compromise on safety.</p>
+                        <p className={`${theme.textMuted} text-xs sm:text-sm lg:text-base`}>Every project adheres to SS 638 standards and EMA regulations. We never compromise on safety.</p>
                     </div>
 
-                    <div className={`p-4 sm:p-6 ${theme.bg} rounded-2xl border ${theme.borderLight} card-hover transition-all duration-300`}>
-                        <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
-                            <div className={`w-10 h-10 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-xl flex items-center justify-center`}>
-                                <Award className="w-5 h-5 text-red-500" />
+                    <div className={`p-4 sm:p-5 lg:p-6 ${theme.bg} rounded-xl sm:rounded-2xl border ${theme.borderLight} card-hover transition-all duration-300`}>
+                        <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
+                            <div className={`w-9 h-9 sm:w-10 sm:h-10 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}>
+                                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
                             </div>
                             Licensed Professionals
                         </h3>
-                        <p className={`${theme.textMuted} text-sm sm:text-base`}>Our team consists of EMA-licensed electricians with extensive training and certifications.</p>
+                        <p className={`${theme.textMuted} text-xs sm:text-sm lg:text-base`}>Our team consists of EMA-licensed electricians with extensive training and certifications.</p>
                     </div>
 
-                    <div className={`p-4 sm:p-6 ${theme.bg} rounded-2xl border ${theme.borderLight} card-hover transition-all duration-300`}>
-                        <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
-                            <div className={`w-10 h-10 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-xl flex items-center justify-center`}>
-                                <Clock className="w-5 h-5 text-red-500" />
+                    <div className={`p-4 sm:p-5 lg:p-6 ${theme.bg} rounded-xl sm:rounded-2xl border ${theme.borderLight} card-hover transition-all duration-300`}>
+                        <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
+                            <div className={`w-9 h-9 sm:w-10 sm:h-10 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}>
+                                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
                             </div>
                             24/7 Emergency Support
                         </h3>
-                        <p className={`${theme.textMuted} text-sm sm:text-base`}>Electrical emergencies don't wait. Neither do we. Available round the clock for urgent repairs.</p>
+                        <p className={`${theme.textMuted} text-xs sm:text-sm lg:text-base`}>Electrical emergencies don't wait. Neither do we. Available round the clock for urgent repairs.</p>
                     </div>
                 </div>
 
-                <div className={`grid grid-cols-2 gap-3 sm:gap-4 ${isInView ? 'animate-fade-up animate-delay-300' : 'opacity-0'}`}>
+                <div className={`grid grid-cols-2 gap-2 sm:gap-3 lg:gap-4 ${isInView ? 'animate-fade-up animate-delay-300' : 'opacity-0'}`}>
                     {stats.map((stat, i) => (
-                        <div key={i} className={`p-4 sm:p-6 ${theme.bgCard} rounded-2xl border ${theme.borderLight} text-center card-hover transition-all duration-300 shadow-sm`}>
-                            <p className={`text-3xl sm:text-4xl font-bold ${isDark ? 'gradient-text-dark' : 'gradient-text'} mb-2`}>
+                        <div key={i} className={`p-3 sm:p-4 lg:p-6 ${theme.bgCard} rounded-xl sm:rounded-2xl border ${theme.borderLight} text-center card-hover transition-all duration-300 shadow-sm`}>
+                            <p className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${isDark ? 'gradient-text-dark' : 'gradient-text'} mb-1 sm:mb-2`}>
                                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                             </p>
-                            <p className={`text-xs sm:text-sm ${theme.textMuted}`}>{stat.label}</p>
+                            <p className={`text-[10px] sm:text-xs lg:text-sm ${theme.textMuted}`}>{stat.label}</p>
                         </div>
                     ))}
                 </div>
@@ -725,78 +713,78 @@ const SectorsContent: React.FC<SectorsContentProps> = ({ sectors, customerTypes,
 
     return (
         <div ref={ref}>
-            <div className="text-center mb-12 sm:mb-16">
-                <span className={`inline-block px-4 py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-4`}>Industries</span>
-                <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                <span className={`inline-block px-3 sm:px-4 py-1 sm:py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-xs sm:text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-3 sm:mb-4`}>Industries</span>
+                <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
                     Which Sectors <span className={isDark ? 'gradient-text-dark' : 'gradient-text'}>We Serve</span>
                 </h2>
-                <p className={`${theme.textMuted} max-w-2xl mx-auto text-sm sm:text-base ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
+                <p className={`${theme.textMuted} max-w-2xl mx-auto text-xs sm:text-sm lg:text-base px-2 sm:px-0 ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
                     From homes to businesses, we provide reliable electrical solutions across multiple sectors in Singapore.
                 </p>
             </div>
 
             {/* Main Sectors */}
-            <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16">
                 {sectors.map((sector, i) => (
                     <div
                         key={i}
-                        className={`group relative p-6 sm:p-8 ${theme.bgCard} rounded-3xl border ${theme.borderLight} hover:border-red-500/30 transition-all duration-500 card-hover overflow-hidden ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
+                        className={`group relative p-5 sm:p-6 lg:p-8 ${theme.bgCard} rounded-2xl sm:rounded-3xl border ${theme.borderLight} hover:border-red-500/30 transition-all duration-500 card-hover overflow-hidden ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
                         style={{ animationDelay: `${(i + 2) * 0.1}s` }}
                     >
                         {/* Background Glow Effect */}
                         <div className={`absolute -top-20 -right-20 w-40 h-40 ${isDark ? 'bg-red-600/10' : 'bg-red-100'} rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700`}></div>
-                        
+
                         <div className="relative z-10">
-                            <div className="w-16 h-16 sm:w-20 sm:h-20 btn-gradient rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg glow-red float-animation">
-                                <sector.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 btn-gradient rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg glow-red float-animation">
+                                <sector.icon className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
                             </div>
-                            <h3 className={`text-xl sm:text-2xl font-bold mb-3 ${theme.text}`}>{sector.title}</h3>
-                            <p className={`${theme.textMuted} text-sm sm:text-base`}>{sector.desc}</p>
+                            <h3 className={`text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 ${theme.text}`}>{sector.title}</h3>
+                            <p className={`${theme.textMuted} text-xs sm:text-sm lg:text-base`}>{sector.desc}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
             {/* Repeated Customers Section */}
-            <div className={`${theme.bgCard} rounded-3xl border ${theme.borderLight} p-8 sm:p-12 ${isInView ? 'animate-fade-up animate-delay-300' : 'opacity-0'}`}>
-                <div className="text-center mb-8 sm:mb-10">
-                    <div className="inline-flex items-center gap-2 mb-4">
-                        <Sparkles className="w-5 h-5 text-red-500" />
-                        <span className={`text-sm font-semibold ${isDark ? 'text-red-400' : 'text-red-600'} uppercase tracking-wider`}>Trusted By Many</span>
-                        <Sparkles className="w-5 h-5 text-red-500" />
+            <div className={`${theme.bgCard} rounded-2xl sm:rounded-3xl border ${theme.borderLight} p-5 sm:p-8 lg:p-12 ${isInView ? 'animate-fade-up animate-delay-300' : 'opacity-0'}`}>
+                <div className="text-center mb-6 sm:mb-8 lg:mb-10">
+                    <div className="inline-flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                        <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
+                        <span className={`text-xs sm:text-sm font-semibold ${isDark ? 'text-red-400' : 'text-red-600'} uppercase tracking-wider`}>Trusted By Many</span>
+                        <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
                     </div>
-                    <h3 className={`text-2xl sm:text-3xl font-bold ${theme.text}`}>Our Repeated Customers</h3>
-                    <p className={`${theme.textMuted} mt-2 text-sm sm:text-base`}>Business types that trust us for their electrical needs</p>
+                    <h3 className={`text-xl sm:text-2xl lg:text-3xl font-bold ${theme.text}`}>Our Repeated Customers</h3>
+                    <p className={`${theme.textMuted} mt-1.5 sm:mt-2 text-xs sm:text-sm lg:text-base`}>Business types that trust us for their electrical needs</p>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                     {customerTypes.map((customer, i) => (
                         <div
                             key={i}
-                            className={`group flex flex-col items-center p-4 sm:p-6 ${theme.bg} rounded-2xl border ${theme.borderLight} hover:border-red-500/50 transition-all duration-300 cursor-pointer hover:shadow-lg`}
+                            className={`group flex flex-col items-center p-3 sm:p-4 lg:p-6 ${theme.bg} rounded-xl sm:rounded-2xl border ${theme.borderLight} hover:border-red-500/50 transition-all duration-300 cursor-pointer hover:shadow-lg`}
                             style={{ animationDelay: `${(i + 4) * 0.05}s` }}
                         >
-                            <div className={`w-12 h-12 sm:w-14 sm:h-14 ${isDark ? 'bg-red-900/30' : 'bg-red-50'} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform group-hover:bg-red-500`}>
-                                <customer.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${isDark ? 'text-red-400' : 'text-red-600'} group-hover:text-white transition-colors`} />
+                            <div className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 ${isDark ? 'bg-red-900/30' : 'bg-red-50'} rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 group-hover:scale-110 transition-transform group-hover:bg-red-500`}>
+                                <customer.icon className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ${isDark ? 'text-red-400' : 'text-red-600'} group-hover:text-white transition-colors`} />
                             </div>
-                            <span className={`text-sm sm:text-base font-medium ${theme.text} text-center`}>{customer.name}</span>
+                            <span className={`text-xs sm:text-sm lg:text-base font-medium ${theme.text} text-center leading-tight`}>{customer.name}</span>
                         </div>
                     ))}
                 </div>
 
                 {/* Trust Indicators */}
-                <div className={`mt-8 sm:mt-10 pt-8 border-t ${theme.borderLight} flex flex-wrap justify-center gap-6 sm:gap-10`}>
-                    <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-green-500" />
-                        <span className={`text-sm ${theme.textMuted}`}>Long-term Partnerships</span>
+                <div className={`mt-6 sm:mt-8 lg:mt-10 pt-6 sm:pt-8 border-t ${theme.borderLight} flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 lg:gap-10`}>
+                    <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+                        <span className={`text-xs sm:text-sm ${theme.textMuted}`}>Long-term Partnerships</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-green-500" />
-                        <span className={`text-sm ${theme.textMuted}`}>Priority Response</span>
+                    <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+                        <span className={`text-xs sm:text-sm ${theme.textMuted}`}>Priority Response</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-green-500" />
-                        <span className={`text-sm ${theme.textMuted}`}>Special Rates for Regulars</span>
+                    <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+                        <span className={`text-xs sm:text-sm ${theme.textMuted}`}>Special Rates for Regulars</span>
                     </div>
                 </div>
             </div>
@@ -816,32 +804,32 @@ const ServicesContent: React.FC<ServicesContentProps> = ({ services, theme, isDa
 
     return (
         <div ref={ref}>
-            <div className="text-center mb-12 sm:mb-16">
-                <span className={`inline-block px-4 py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-4`}>Our Services</span>
-                <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                <span className={`inline-block px-3 sm:px-4 py-1 sm:py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-xs sm:text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-3 sm:mb-4`}>Our Services</span>
+                <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
                     Complete <span className={isDark ? 'gradient-text-dark' : 'gradient-text'}>Electrical</span> Solutions
                 </h2>
-                <p className={`${theme.textMuted} max-w-2xl mx-auto text-sm sm:text-base ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
+                <p className={`${theme.textMuted} max-w-2xl mx-auto text-xs sm:text-sm lg:text-base px-2 sm:px-0 ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
                     From basic repairs to complete electrical installations, we've got all your needs covered.
                 </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                 {services.map((service, i) => (
                     <div
                         key={i}
-                        className={`group p-4 sm:p-6 ${theme.bgCard} rounded-2xl border ${theme.borderLight} hover:border-red-500/30 transition-all duration-300 card-hover cursor-pointer ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
+                        className={`group p-4 sm:p-5 lg:p-6 ${theme.bgCard} rounded-xl sm:rounded-2xl border ${theme.borderLight} hover:border-red-500/30 transition-all duration-300 card-hover cursor-pointer ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
                         style={{ animationDelay: `${(i + 2) * 0.05}s` }}
                     >
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 btn-gradient rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg text-white">
+                        <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 btn-gradient rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform shadow-lg text-white">
                             <service.icon />
                         </div>
-                        <h3 className="text-base sm:text-lg font-semibold mb-2">{service.title}</h3>
-                        <p className={`${theme.textMuted} text-xs sm:text-sm mb-4`}>{service.desc}</p>
-                        <ul className="space-y-1.5 sm:space-y-2">
+                        <h3 className="text-sm sm:text-base lg:text-lg font-semibold mb-1.5 sm:mb-2">{service.title}</h3>
+                        <p className={`${theme.textMuted} text-[11px] sm:text-xs lg:text-sm mb-3 sm:mb-4 leading-relaxed`}>{service.desc}</p>
+                        <ul className="space-y-1 sm:space-y-1.5 lg:space-y-2">
                             {service.features.map((feature, j) => (
-                                <li key={j} className={`flex items-center gap-2 text-xs sm:text-sm ${theme.textMuted}`}>
-                                    <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500 flex-shrink-0" />{feature}
+                                <li key={j} className={`flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs lg:text-sm ${theme.textMuted}`}>
+                                    <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 text-red-500 flex-shrink-0" />{feature}
                                 </li>
                             ))}
                         </ul>
@@ -852,47 +840,7 @@ const ServicesContent: React.FC<ServicesContentProps> = ({ services, theme, isDa
     );
 };
 
-// Projects Content Component
-interface ProjectsContentProps {
-    projects: Project[];
-    theme: ThemeColors;
-    isDark: boolean;
-}
 
-const ProjectsContent: React.FC<ProjectsContentProps> = ({ projects, theme, isDark }) => {
-    const [ref, isInView] = useInView();
-
-    return (
-        <div ref={ref}>
-            <div className="text-center mb-12 sm:mb-16">
-                <span className={`inline-block px-4 py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-4`}>Our Work</span>
-                <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                    Featured <span className={isDark ? 'gradient-text-dark' : 'gradient-text'}>Projects</span>
-                </h2>
-                <p className={`${theme.textMuted} max-w-2xl mx-auto text-sm sm:text-base ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
-                    Explore some of our recent electrical installations across Singapore.
-                </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                {projects.map((project, i) => (
-                    <div
-                        key={i}
-                        className={`group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
-                        style={{ animationDelay: `${(i + 2) * 0.1}s` }}
-                    >
-                        <img src={project.image} alt={project.title} className="w-full h-48 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 right-4">
-                            <span className="inline-block px-3 py-1 btn-gradient text-white text-xs font-semibold rounded-full mb-2">{project.type}</span>
-                            <h3 className="text-base sm:text-lg font-semibold text-white">{project.title}</h3>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
 
 // Contact Content Component - SIMPLIFIED TO ONLY SHOW PHONE
 interface ContactContentProps {
@@ -905,34 +853,34 @@ const ContactContent: React.FC<ContactContentProps> = ({ theme, isDark }) => {
 
     return (
         <div ref={ref}>
-            <div className="text-center mb-12 sm:mb-16">
-                <span className={`inline-block px-4 py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-4`}>Contact Us</span>
-                <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                <span className={`inline-block px-3 sm:px-4 py-1 sm:py-1.5 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-full text-xs sm:text-sm ${isDark ? 'text-red-300' : 'text-red-700'} font-medium mb-3 sm:mb-4`}>Contact Us</span>
+                <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
                     Get Your <span className={isDark ? 'gradient-text-dark' : 'gradient-text'}>Free Quote</span>
                 </h2>
-                <p className={`${theme.textMuted} max-w-2xl mx-auto text-sm sm:text-base ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
+                <p className={`${theme.textMuted} max-w-2xl mx-auto text-xs sm:text-sm lg:text-base px-2 sm:px-0 ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
                     Ready to start your project? Contact us today for a free consultation and quote.
                 </p>
             </div>
 
-            <div className={`max-w-lg mx-auto ${isInView ? 'animate-fade-up animate-delay-200' : 'opacity-0'}`}>
+            <div className={`max-w-md sm:max-w-lg mx-auto px-2 sm:px-0 ${isInView ? 'animate-fade-up animate-delay-200' : 'opacity-0'}`}>
                 {/* Large Call Button */}
                 <a
-                    href="tel:+6591234567"
-                    className={`block p-6 sm:p-8 ${theme.bgCard} rounded-3xl border ${theme.borderLight} shadow-xl hover:shadow-2xl transition-all duration-300 card-hover`}
+                    href="tel:+6589798281"
+                    className={`block p-5 sm:p-6 lg:p-8 ${theme.bgCard} rounded-2xl sm:rounded-3xl border ${theme.borderLight} shadow-xl hover:shadow-2xl transition-all duration-300 card-hover`}
                 >
                     <div className="flex flex-col items-center text-center">
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 btn-gradient rounded-2xl flex items-center justify-center mb-6 shadow-lg glow-red">
-                            <Phone className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 btn-gradient rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg glow-red">
+                            <Phone className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" />
                         </div>
-                        <h3 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-2`}>Call Us Now</h3>
-                        <p className="text-3xl sm:text-4xl font-bold text-red-500 mb-3">+65 9123 4567</p>
-                        <p className={`text-sm ${theme.textMuted}`}>24/7 Emergency Line Available</p>
+                        <h3 className={`text-xl sm:text-2xl lg:text-3xl font-bold ${theme.text} mb-1.5 sm:mb-2`}>Call Us Now</h3>
+                        <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-red-500 mb-2 sm:mb-3">+65 8979 8281</p>
+                        <p className={`text-xs sm:text-sm ${theme.textMuted}`}>24/7 Emergency Line Available</p>
 
-                        <div className={`mt-6 w-full p-4 ${isDark ? 'bg-red-900/30' : 'bg-red-50'} rounded-xl border ${isDark ? 'border-red-800/50' : 'border-red-200'}`}>
-                            <div className="flex items-center justify-center gap-2">
-                                <Clock className="w-5 h-5 text-red-500" />
-                                <span className={`text-sm font-medium ${isDark ? 'text-red-300' : 'text-red-700'}`}>
+                        <div className={`mt-4 sm:mt-6 w-full p-3 sm:p-4 ${isDark ? 'bg-red-900/30' : 'bg-red-50'} rounded-lg sm:rounded-xl border ${isDark ? 'border-red-800/50' : 'border-red-200'}`}>
+                            <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+                                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 flex-shrink-0" />
+                                <span className={`text-xs sm:text-sm font-medium ${isDark ? 'text-red-300' : 'text-red-700'}`}>
                                     Available 24 hours, 7 days a week
                                 </span>
                             </div>
@@ -942,17 +890,17 @@ const ContactContent: React.FC<ContactContentProps> = ({ theme, isDark }) => {
 
                 {/* WhatsApp Alternative */}
                 <a
-                    href="https://wa.me/6591234567"
+                    href="https://wa.me/6589798281"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center justify-center gap-3 mt-6 p-4 ${theme.bgCard} rounded-xl border ${theme.borderLight} hover:border-green-500/50 transition-all group`}
+                    className={`flex items-center justify-center gap-2 sm:gap-3 mt-4 sm:mt-6 p-3 sm:p-4 ${theme.bgCard} rounded-lg sm:rounded-xl border ${theme.borderLight} hover:border-green-500/50 transition-all group`}
                 >
-                    <div className="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg viewBox="0 0 24 24" className="w-6 h-6 text-white fill-current">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 bg-green-500 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                        <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                         </svg>
                     </div>
-                    <span className={`font-medium ${theme.text}`}>Or message us on WhatsApp</span>
+                    <span className={`text-sm sm:text-base font-medium ${theme.text}`}>Or message us on WhatsApp</span>
                 </a>
             </div>
         </div>
