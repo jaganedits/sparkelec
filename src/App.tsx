@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
 import type { ReactNode } from 'react';
 import { Zap, Phone, Menu, X, Lightbulb, CheckCircle2, ArrowRight, Shield, Award, Clock, ChevronRight, Moon, Sun, Building2, Home, Store, Briefcase, Stethoscope, BookOpen, PawPrint, Sparkles, ShoppingBag, WashingMachine, Building } from 'lucide-react';
-import electricianImage from './assets/images/Gemini_Generated_Image_hyt6k2hyt6k2hyt6.png';
+import electricianImage from './assets/images/heropagewall.png';
 
 // Types
 interface Stat {
