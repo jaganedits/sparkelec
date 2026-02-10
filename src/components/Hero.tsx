@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                             <div className={`absolute -bottom-4 sm:-bottom-6 left-2 right-2 sm:left-4 sm:right-4 ${theme.bgCard} rounded-2xl p-4 sm:p-6 shadow-xl border ${theme.borderLight}`}>
                                 <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
                                     <div>
-                                        <p className="text-xl sm:text-2xl font-bold text-red-500"><AnimatedCounter end={15} suffix="+" /></p>
+                                        <p className="text-xl sm:text-2xl font-bold text-red-500"><AnimatedCounter end={25} suffix="+" /></p>
                                         <p className={`text-[10px] sm:text-xs ${theme.textLight}`}>Years Exp</p>
                                     </div>
                                     <div className={`border-x ${theme.border}`}>

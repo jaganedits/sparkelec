@@ -4,6 +4,7 @@ import { SECTIONS } from './data/constants';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Sectors from './components/Sectors';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -37,6 +38,7 @@ const ElectricianWebsite: React.FC = () => {
             <main>
                 <Hero onNavigate={scrollToSection} />
                 <About />
+                <Sectors />
                 <Services />
                 <Contact />
             </main>

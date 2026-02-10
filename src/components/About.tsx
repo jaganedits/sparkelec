@@ -19,12 +19,12 @@ const About: React.FC = () => {
                             Singapore's <span className={isDark ? 'gradient-text-dark' : 'gradient-text'}>Trusted</span> Electricians
                         </h2>
                         <p className={`${theme.textMuted} max-w-2xl mx-auto text-sm sm:text-base ${isInView ? 'animate-fade-up animate-delay-100' : 'opacity-0'}`}>
-                            For over 15 years, we've been delivering excellence in electrical services across Singapore. From HDB flats to commercial buildings, we handle it all.
+                            For over 25 years, we've been delivering excellence in electrical services across Singapore. From HDB flats to commercial buildings, we handle it all.
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-                        <div className={`space-y-4 sm:space-y-6 ${isInView ? 'animate-fade-up animate-delay-200' : 'opacity-0'}`}>
+                        <div className={`space-y-4 sm:space-y-6 ${isInView ? 'animate-fade-right animate-delay-200' : 'opacity-0'}`}>
                             <div className={`p-4 sm:p-6 ${theme.bg} rounded-2xl border ${theme.borderLight} card-hover transition-all duration-300`}>
                                 <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
                                     <div className={`w-10 h-10 ${isDark ? 'bg-red-900/50' : 'bg-red-100'} rounded-xl flex items-center justify-center`}>
@@ -56,7 +56,7 @@ const About: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className={`grid grid-cols-2 gap-3 sm:gap-4 ${isInView ? 'animate-fade-up animate-delay-300' : 'opacity-0'}`}>
+                        <div className={`grid grid-cols-2 gap-3 sm:gap-4 ${isInView ? 'animate-fade-left animate-delay-300' : 'opacity-0'}`}>
                             {stats.map((stat) => (
                                 <div key={stat.label} className={`p-4 sm:p-6 ${theme.bgCard} rounded-2xl border ${theme.borderLight} text-center card-hover transition-all duration-300 shadow-sm`}>
                                     <p className={`text-3xl sm:text-4xl font-bold ${isDark ? 'gradient-text-dark' : 'gradient-text'} mb-2`}>

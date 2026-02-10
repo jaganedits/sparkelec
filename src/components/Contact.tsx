@@ -2,7 +2,7 @@ import { Phone, Clock } from 'lucide-react';
 import { useTheme, getThemeColors } from '../context/ThemeContext';
 import { useInView } from '../hooks/useInView';
 import { BUSINESS } from '../data/constants';
-import { WhatsAppIcon } from '../icons/CustomIcons';
+import { WhatsAppIcon, SingaporeFlag } from '../icons/CustomIcons';
 
 const Contact: React.FC = () => {
     const { isDark } = useTheme();
@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className={`max-w-lg mx-auto ${isInView ? 'animate-fade-up animate-delay-200' : 'opacity-0'}`}>
+                    <div className={`max-w-lg mx-auto ${isInView ? 'animate-scale-up animate-delay-200' : 'opacity-0'}`}>
                         <a
                             href={`tel:${BUSINESS.phoneRaw}`}
                             className={`block p-6 sm:p-8 ${theme.bgCard} rounded-3xl border ${theme.borderLight} shadow-xl hover:shadow-2xl transition-all duration-300 card-hover`}
@@ -33,7 +33,10 @@ const Contact: React.FC = () => {
                                     <Phone className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                                 </div>
                                 <h3 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-2`}>Call Us Now</h3>
-                                <p className="text-3xl sm:text-4xl font-bold text-red-500 mb-3">{BUSINESS.phone}</p>
+                                <div className="flex items-center justify-center gap-2.5 mb-3">
+                                    <SingaporeFlag className="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0" />
+                                    <span className="text-3xl sm:text-4xl font-bold text-red-500">{BUSINESS.phone}</span>
+                                </div>
                                 <p className={`text-sm ${theme.textMuted}`}>24/7 Emergency Line Available</p>
 
                                 <div className={`mt-6 w-full p-4 ${isDark ? 'bg-red-900/30' : 'bg-red-50'} rounded-xl border ${isDark ? 'border-red-800/50' : 'border-red-200'}`}>

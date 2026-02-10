@@ -26,8 +26,8 @@ const Services: React.FC = () => {
                         {services.map((service, i) => (
                             <div
                                 key={service.title}
-                                className={`group p-4 sm:p-6 ${theme.bgCard} rounded-2xl border ${theme.borderLight} hover:border-red-500/30 transition-all duration-300 card-hover cursor-pointer ${isInView ? 'animate-fade-up' : 'opacity-0'}`}
-                                style={{ animationDelay: `${(i + 2) * 0.05}s` }}
+                                className={`group p-4 sm:p-6 ${theme.bgCard} rounded-2xl border ${theme.borderLight} hover:border-red-500/30 transition-all duration-300 card-hover cursor-pointer ${isInView ? (i % 2 === 0 ? 'animate-fade-left' : 'animate-fade-right') : 'opacity-0'}`}
+                                style={{ animationDelay: `${(i + 2) * 0.08}s` }}
                             >
                                 <div className="w-12 h-12 sm:w-14 sm:h-14 btn-gradient rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg text-white">
                                     <service.icon />

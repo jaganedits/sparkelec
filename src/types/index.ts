@@ -13,6 +13,17 @@ export interface Service {
     features: string[];
 }
 
+export interface Sector {
+    icon: React.FC<{ className?: string }>;
+    title: string;
+    desc: string;
+}
+
+export interface CustomerType {
+    icon: React.FC<{ className?: string }>;
+    name: string;
+}
+
 export interface ThemeContextType {
     isDark: boolean;
     toggleTheme: () => void;

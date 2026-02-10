@@ -1,6 +1,7 @@
 import { Zap, Phone } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { BUSINESS } from '../data/constants';
+import { SingaporeFlag } from '../icons/CustomIcons';
 
 const Footer: React.FC = () => {
     const { isDark } = useTheme();
@@ -40,14 +41,18 @@ const Footer: React.FC = () => {
                                 <Phone className="w-6 h-6 text-white" />
                             </div>
                             <div>
-                                <p className="text-white font-semibold">{BUSINESS.phone}</p>
-                                <p className="text-xs text-red-300">24/7 Emergency Line</p>
+                                <div className="flex items-center gap-2">
+                                    <SingaporeFlag className="w-5 h-5 flex-shrink-0" />
+                                    <p className="text-white font-semibold">{BUSINESS.phone}</p>
+                                </div>
+                                <p className="text-xs text-red-300 mt-0.5">24/7 Emergency Line</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={`flex flex-col sm:flex-row justify-between items-center pt-8 border-t ${isDark ? 'border-gray-800' : 'border-gray-700'} gap-4`}>
                     <p className="text-sm text-gray-400 text-center sm:text-left">&copy; {currentYear} {BUSINESS.name}. All rights reserved. UEN: {BUSINESS.uen}</p>
+                    <p className="text-sm text-gray-500 text-center sm:text-right">Powered by <a href="https://github.com/jaganedits" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors">Jaganedits</a></p>
                 </div>
             </div>
         </footer>
